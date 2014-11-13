@@ -1,4 +1,4 @@
-int y,yspeed,yaccel;
+float y,yspeed,yaccel;
 
 void setup() {
   size(displayWidth, displayHeight);
@@ -13,7 +13,8 @@ void draw() {
   y+=yspeed;
   ellipse(width/2, y, 20, 20);
   if(y  > height){
-    yspeed = -abs(yspeed);
+    y = height;
+    yspeed = -abs(yspeed) * .9;
   }
  
 }
