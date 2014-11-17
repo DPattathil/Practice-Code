@@ -1,40 +1,48 @@
-float x, y, vx, vy, ax, ay, sz;
+PVector coor, velo, accel, sz;
 
-void setup(){
- 
- size(displayWidth, displayHeight);
- x = width/2;
- y = height/2;
- sz = 10;
- vx = 0;
- vy = 0;
- ax = random(-1,1);
- ax = random(-1,1);
- 
-}
+void setup() {
 
-void draw(){
+  size(displayWidth, displayHeight);
   
-  ax = random(-1,1);
-  ay = random(-1,1);
-  sz = random(20);
-  ellipse(x, y, sz, sz);
-  vx += ax;
-  vy += ay;
-  x += vx;
-  y += vy;
-  vx = constrain(vx, -5, 5);
-  vy = constrain(vy, -5, 5);
-  if(x > width){
-   x = 0; 
+  coor = new PVector(width/2, height/2);
+  // x = width/2;
+  // y = height/2;
+  
+  sz = new PVector(10, 10);
+  // sz = 10;
+  
+  velo = new PVector(0, 0);
+  // vx = 0;
+  // vy = 0;
+  
+  accel = new PVector(random(-1, 1), random(-1, 1));
+  // ax = random(-1,1);
+  // ax = random(-1,1);
+}
+
+void draw() {
+
+  accel.set(random(-1, 1), random(-1, 1));
+  sz.set(random(15,20),random(15,20));
+  ellipse(coor.x, coor.y, sz.x, sz.y);
+  velo.add(accel);
+//  vx += ax;
+//  vy += ay;
+  coor.add(velo);
+//  x += vx;
+//  y += vy;
+  velo.limit(10);
+  if(coor.x > width) {
+    coor.x = 0;
   }
-  if(x < 0){
-   x = width; 
+  if (coor.x < 0) {
+    coor.x = width;
   }
-  if(y > height){
-   y = 0; 
+  if (coor.y > height) {
+    coor.y = 0;
   }
-  if(y < 0){
-   y = height; 
+  if (coor.y < 0) {
+    coor.y = height;
   }
 }
+
