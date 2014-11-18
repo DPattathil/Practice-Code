@@ -22,6 +22,8 @@ void setup() {
 
 void draw() {
 
+//  background(0);
+  
   accel.set(random(-1, 1), random(-1, 1));
   sz.set(random(15,20),random(15,20));
   ellipse(coor.x, coor.y, sz.x, sz.y);
