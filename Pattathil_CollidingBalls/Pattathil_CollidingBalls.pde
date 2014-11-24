@@ -16,6 +16,8 @@ void setup() {
 
 void draw() {
   
+  background(0);
+  
     loc.add(vel);
     loc1.add(vel1);
     ellipse(loc.x, loc.y, sz.x, sz.y);
