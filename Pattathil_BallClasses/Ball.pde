@@ -1,11 +1,10 @@
 class Ball {
   PVector loc, vel, acc, sz, mouse;
   Ball() {
-    size(displayWidth, displayHeight);
-    loc = new PVector(width/2, height/2);
+    loc = new PVector(random(100,width-100), random(100,height-100));
     vel = PVector.random2D();
     acc = new PVector(0, 0);
-    sz = new PVector(200, 200);
+    sz = new PVector(20, 20);
     mouse = new PVector();
   }
   
@@ -24,22 +23,6 @@ class Ball {
 
     if (loc.y + sz.y/2 > height || loc.y - sz.y/2 < 0) {
       vel.y *= -1;
-    }
-  }
-  
-  void mouse() {
-    mouse.set(mouseX, mouseY);
-  if (loc.dist(mouse) < sz.x/2) {
-    if (mouse.x < loc.x) {
-      vel.x = abs(vel.x);
-    } else {
-      vel.x = -abs(vel.x);
-    }
-    if (mouse.y < loc.y)
-    {
-      vel.y = abs(vel.y);
-    } else {
-      vel.y = -abs(vel.y);
     }
   }
 }
