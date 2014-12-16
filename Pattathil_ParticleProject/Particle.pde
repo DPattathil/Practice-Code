@@ -1,19 +1,27 @@
-class Particle{
- float sz;
-float life;
-PVector coor, vel, accel;
+class Particle {
+  float sz;
+  float life;
+  PVector coor, vel, accel;
 
-Particle(){
- 
- sz = random(5, 10);
-life = 255;
-coor = new PVector(width/2, height/2);
-vel = PVector.random2D();
-accel = new PVector(0, .01)
-  
+  Particle(float x, float y) {
+
+    sz = random(5, 100);
+    life = 255;
+    coor = new PVector(x, y);
+    vel = new PVector(random(-5, 5), random(-5, -1));
+    accel = new PVector(0, .1);
+  }
+
+  void create(){
+
+    ellipse(coor.x, coor.y, sz, sz);
+  }
+
+  void move(){
+    vel.add(accel);
+    coor.add(vel);
+  }
 }
- 
- void 
-  
-  
-}
+
+
+
