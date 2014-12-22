@@ -11,7 +11,7 @@ class Particle {
     coor = new PVector(x, y);
     vel = new PVector(random(-3, 3), random(-5, -1));
     accel = new PVector(0, .1);
-    present = loadImage("present.png");
+    present = loadImage("present.gif");
   }
 
   void create(){
